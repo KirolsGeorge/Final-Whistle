@@ -1,6 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faRankingStar, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
+import DockItem from '../Componants/UI/dockItem';
 
 export default function Dock() {
   return (
@@ -12,19 +11,10 @@ export default function Dock() {
       shadow-[0_20px_50px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.1)]
 
       light:bg-white/40 light:border-white/60 light:backdrop-blur-xl
-      light:hadow-[0_8px_32px_rgba(0,0,0,0.06)]
-
-      '
+      light:hadow-[0_8px_32px_rgba(0,0,0,0.06)]'
     >
-      <button className='transition-all duration-500'>
-        <FontAwesomeIcon icon={faRankingStar} className='text-xl' />
-        <span className='dock-label'>Rank</span>
-      </button>
-
-      <button className='transition-all duration-500'>
-        <FontAwesomeIcon icon={faClockRotateLeft} className='text-xl' />
-        <span className='dock-label'>Recent</span>
-      </button>
+      <DockItem icon={faRankingStar} text='Rank' destination={'/'} />
+      <DockItem icon={faClockRotateLeft} text='Recent' destination={'/recent-matches'} />
     </div>
   );
 }
