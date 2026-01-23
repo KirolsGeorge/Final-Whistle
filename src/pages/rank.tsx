@@ -1,4 +1,4 @@
-import RankingTable from '../Componants/UI/rankingTable';
+import RankingTable from '../Componants/UI/rankingTable.tsx';
 
 export default function RankPage() {
   return (

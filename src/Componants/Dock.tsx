@@ -1,5 +1,5 @@
 import { faRankingStar, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
-import DockItem from '../Componants/UI/dockItem';
+import DockItem from './UI/dockItem';
 
 export default function Dock() {
   return (
