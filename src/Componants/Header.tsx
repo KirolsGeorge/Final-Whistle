@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header
       className='rounded-b-xl p-2 flex items-center
-      sticky top-0 z-50 w-full max-w-7xl border border-t-0
+      sticky top-0 z-50 w-full max-w-7xl border border-t-0 outline-0
 
       bg-white/1 backdrop-blur-2xl border-white/5
       shadow-[0_20px_50px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.1)]
