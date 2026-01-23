@@ -1,4 +1,4 @@
-import RankingTableRow from './RankingTableRow';
+import RankingTableRow from './rankingTableRow';
 
 export default function RankingTable() {
   return (
