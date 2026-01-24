@@ -2,7 +2,6 @@ import type { TeamsResponse, Team } from '../../types';
 
 const lOCAL_STORAGE_KEY: string = import.meta.env.VITE_lOCAL_STORAGE_KEY;
 
-
 export function UseFootballAPI() {
   async function getAllTeams(): Promise<Team[]> {
     const cashed = localStorage.getItem(lOCAL_STORAGE_KEY);
@@ -11,7 +10,7 @@ export function UseFootballAPI() {
       return JSON.parse(cashed);
     }
 
-    const res = await fetch('/api/v4/competitions/CL/teams', {
+    const res = await fetch('https://api.football-data.org/v4/competitions/CL/teams', {
       headers: {
         'X-Auth-Token': '2c7c5213546f415794138527105aa76e',
       },
