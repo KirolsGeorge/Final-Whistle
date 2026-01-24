@@ -1,6 +1,7 @@
 import { faRankingStar, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
 import DockItem from '../Componants/UI/dockItem';
 
+
 export default function Dock() {
   return (
     <div
@@ -13,6 +14,7 @@ export default function Dock() {
       light:bg-white/40 light:border-white/60 light:backdrop-blur-xl
       light:hadow-[0_8px_32px_rgba(0,0,0,0.06)]'
     >
+
       <DockItem icon={faRankingStar} text='Rank' destination={'/'} />
       <DockItem icon={faClockRotateLeft} text='Recent' destination={'/recent-matches'} />
     </div>
