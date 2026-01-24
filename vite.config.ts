@@ -9,5 +9,4 @@ export default defineConfig({
     hmr: false,
   },
   base: '/',
-  assetsInclude: ['**/*.html'],
 });
