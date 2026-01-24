@@ -4,7 +4,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 export default async function handler(_req: VercelRequest, res: VercelResponse) {
   try {
     const response = await fetch('https://api.football-data.org/v4/competitions/CL/teams', {
-      headers: { 'X-Auth-Token': process.env.VITE_API_KEY } as HeadersInit,
+      headers: { 'X-Auth-Token': process.env.API_KEY } as HeadersInit,
     });
 
     if (!response.ok) {
