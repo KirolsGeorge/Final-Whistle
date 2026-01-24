@@ -1,11 +1,10 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+// /api/teams.ts
+import type { VercelResponse } from '@vercel/node';
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(res: VercelResponse) {
   try {
     const response = await fetch('https://api.football-data.org/v4/competitions/CL/teams', {
-      headers: {
-        'X-Auth-Token': process.env.VITE_API_KEY, // keep key secret
-      } as HeadersInit,
+      headers: { 'X-Auth-Token': process.env.VITE_API_KEY } as HeadersInit,
     });
 
     if (!response.ok) {

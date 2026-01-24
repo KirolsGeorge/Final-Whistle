@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useFootballAPI } from '../hooks/useFootballAPI';
+import { useFootballAPI } from '../../hooks/useFootballAPI';
 import type { Team } from '../../types';
 
 export default function TeamsList() {
