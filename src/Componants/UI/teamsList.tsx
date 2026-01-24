@@ -24,21 +24,5 @@ export default function TeamsList() {
         </option>
       ))}
     </select>
-
-    // <div className='dropdown'>
-    //   <div tabIndex={0} role='button' className='btn m-1'>
-    //     Click
-    //   </div>
-    //   <ul tabIndex={-1} className='dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm'>
-    //     {teams.map((team, index) => (
-    //       <li key={index} >
-    //         <div className='flex items-center'>
-    //           <img src={team.crest} alt={team.name} className='size-5' />
-    //           <span>{team.name}</span>
-    //         </div>
-    //       </li>
-    //     ))}
-    //   </ul>
-    // </div>
   );
 }
