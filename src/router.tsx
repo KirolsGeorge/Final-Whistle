@@ -14,11 +14,11 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/',
+        path: '',
         element: <RankPage />,
       },
       {
-        path: '/recent-matches',
+        path: 'recent-matches',
         element: <RecentPage />,
       },
     ],

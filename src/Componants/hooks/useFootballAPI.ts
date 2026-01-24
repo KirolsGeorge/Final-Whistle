@@ -1,6 +1,6 @@
 import type { TeamsResponse, Team } from '../../types';
 
-const lOCAL_STORAGE_KEY: string = process.env.VITE_lOCAL_STORAGE_KEY!;
+const lOCAL_STORAGE_KEY: string = process.env.lOCAL_STORAGE_KEY!;
 
 export function useFootballAPI() {
   async function getAllTeams(): Promise<Team[]> {
