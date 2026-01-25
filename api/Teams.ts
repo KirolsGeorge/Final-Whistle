@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import 'dotenv/config'; // loads .env locally
 
 export default async function handler(_req: VercelRequest, res: VercelResponse) {
   try {
@@ -19,6 +20,7 @@ export default async function handler(_req: VercelRequest, res: VercelResponse) 
     const data = await response.json();
     res.status(200).json(data);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: 'Server error' });
   }
 }

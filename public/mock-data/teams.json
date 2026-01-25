@@ -1,0 +1,7 @@
+{
+  "teams": [
+    { "name": "Real Madrid", "crest": "https://crests.football-data.org/86.png", "tla": "RMA" },
+    { "name": "Liverpool", "crest": "https://crests.football-data.org/64.png", "tla": "LIV" },
+    { "name": "Chelsea", "crest": "https://crests.football-data.org/61.png", "tla": "CHE" }
+  ]
+}

@@ -1,6 +1,6 @@
 import type { RankingTableRowPropsType } from '../../types';
 
-import Avatar from '../../assets/football-player.jpg';
+import Avatar from '/assets/football-player.jpg';
 
 export default function RankingTableRow(props: RankingTableRowPropsType) {
   return (
