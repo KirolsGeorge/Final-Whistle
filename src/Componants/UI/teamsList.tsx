@@ -13,14 +13,17 @@ export default function TeamsList() {
         Choose Team
       </div>
       <ul tabIndex={-1} className='dropdown-content menu bg-base-100 rounded-box w-52 p-2 shadow-sm max-h-64 overflow-y-auto flex-nowrap z-50'>
-        {teams?.map((team) => (
-          <li key={team.name} className='w-full'>
-            <div className='flex items-center gap-2 p-2 cursor-pointer w-full overflow-hidden'>
-              <img src={team.crest} alt={team.name} className='w-8 h-8 shrink-0 bg-white rounded-2xl p-0.5' />
-              <span className='truncate'>{team.name}</span>
-            </div>
-          </li>
-        ))}
+        {error && <li>{error.message}</li>}
+        {isLoading && <li>loading teams....</li>}
+        {!isLoading &&
+          teams?.map((team) => (
+            <li key={team.name} className='w-full'>
+              <div className='flex items-center gap-2 p-2 cursor-pointer w-full overflow-hidden'>
+                <img src={team.crest} alt={team.name} className='w-8 h-8 shrink-0 bg-white rounded-2xl p-0.5' />
+                <span className='truncate'>{team.name}</span>
+              </div>
+            </li>
+          ))}
       </ul>
     </div>
   );
