@@ -24,3 +24,5 @@ export default async function handler(_req: VercelRequest, res: VercelResponse) 
     res.status(500).json({ error: 'Server error' });
   }
 }
+
+

@@ -1,16 +1,11 @@
-import { useEffect, useState } from 'react';
 import { useFootballAPI } from '../../hooks/useFootballAPI';
-import type { Team } from '../../types';
 
 export default function TeamsList() {
-  const [teams, setTeams] = useState<Team[]>([]);
-
+  // const { data: teams, isLoading, error } = useFootballAPI();
   const teamsDataApi = useFootballAPI();
   const { getAllTeams } = teamsDataApi;
 
-  useEffect(() => {
-    getAllTeams().then(setTeams);
-  }, []);
+  const { data: teams, isLoading, error } = getAllTeams();
 
   return (
     <div className='dropdown'>
@@ -18,7 +13,7 @@ export default function TeamsList() {
         Choose Team
       </div>
       <ul tabIndex={-1} className='dropdown-content menu bg-base-100 rounded-box w-52 p-2 shadow-sm max-h-64 overflow-y-auto flex-nowrap z-50'>
-        {teams.map((team) => (
+        {teams?.map((team) => (
           <li key={team.name} className='w-full'>
             <div className='flex items-center gap-2 p-2 cursor-pointer w-full overflow-hidden'>
               <img src={team.crest} alt={team.name} className='w-8 h-8 shrink-0 bg-white rounded-2xl p-0.5' />
