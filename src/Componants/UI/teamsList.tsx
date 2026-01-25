@@ -21,7 +21,7 @@ export default function TeamsList() {
         {teams.map((team) => (
           <li key={team.name} className='w-full'>
             <div className='flex items-center gap-2 p-2 cursor-pointer w-full overflow-hidden'>
-              <img src={team.crest} alt={team.name} className='w-7 h-7 shrink-0 bg-white rounded-2xl' />
+              <img src={team.crest} alt={team.name} className='w-8 h-8 shrink-0 bg-white rounded-2xl p-0.5' />
               <span className='truncate'>{team.name}</span>
             </div>
           </li>
