@@ -23,15 +23,12 @@ export function useFootballAPI() {
     }));
   }
 
-  function getAllTeams() {
-    const query = useQuery<Team[], Error>({
-      queryKey: ['teams'],
-      queryFn: fetchTeams,
-      staleTime: 1000 * 60 * 60 * 24,
-      refetchOnWindowFocus: true,
-    });
-    return query;
-  }
-
-  return { getAllTeams };
+  return useQuery<Team[], Error>({
+    queryKey: ['teams'],
+    queryFn: fetchTeams,
+    staleTime: 1000 * 60 * 60 * 24,
+    refetchOnWindowFocus: true,
+    refetchOnMount: false,
+    refetchInterval: false,
+  });
 }

@@ -1,11 +1,7 @@
 import { useFootballAPI } from '../../hooks/useFootballAPI';
 
 export default function TeamsList() {
-  // const { data: teams, isLoading, error } = useFootballAPI();
-  const teamsDataApi = useFootballAPI();
-  const { getAllTeams } = teamsDataApi;
-
-  const { data: teams, isLoading, error } = getAllTeams();
+  const { data: teams, isLoading, error } = useFootballAPI();
 
   return (
     <div className='dropdown'>
