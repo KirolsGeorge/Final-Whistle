@@ -1,11 +1,9 @@
 import type { TeamsResponse, Team } from '../types';
 
-console.log(process.env.lOCAL_STORAGE_KEY);
-const lOCALSTORAGE_KEY = process.env.lOCAL_STORAGE_KEY!;
-
 export function useFootballAPI() {
   async function getAllTeams(): Promise<Team[]> {
-    const cashed = localStorage.getItem(lOCALSTORAGE_KEY);
+    const lOCAL_STORAGE_KEY = 'football_teams';
+    const cashed = localStorage.getItem(lOCAL_STORAGE_KEY);
 
     if (cashed) {
       return JSON.parse(cashed);
@@ -21,7 +19,7 @@ export function useFootballAPI() {
 
     const teams: Team[] = data.teams.map((team: Team) => ({ name: team.name, crest: team.crest, tla: team.tla }));
 
-    localStorage.setItem(lOCALSTORAGE_KEY, JSON.stringify(teams));
+    localStorage.setItem(lOCAL_STORAGE_KEY, JSON.stringify(teams));
 
     return teams;
   }
