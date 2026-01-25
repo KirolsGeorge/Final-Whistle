@@ -8,5 +8,9 @@ export default defineConfig({
     hmr: false,
   },
   base: '/',
-  assetsInclude: ['**/*.html'],
+  build: {
+    rollupOptions: {
+      input: '/index.html',
+    },
+  },
 });
