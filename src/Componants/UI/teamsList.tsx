@@ -10,7 +10,7 @@ export default function TeamsList() {
       </div>
       <ul tabIndex={-1} className='dropdown-content menu bg-base-100 rounded-box w-52 p-2 shadow-sm max-h-64 overflow-y-auto flex-nowrap z-50'>
         {error && <li>{error.message}</li>}
-        {isLoading && <li>loading teams....</li>}
+        {isLoading && <span className='skeleton skeleton-text'>loading teams....</span>}
         {!isLoading &&
           teams?.map((team) => (
             <li key={team.name} className='w-full'>
