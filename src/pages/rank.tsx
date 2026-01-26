@@ -1,5 +1,5 @@
-import RankingTable from '../Componants/UI/rankingTable';
-import TeamsList from '../Componants/UI/teamsList';
+import RankingTable from '../Componants/rankingTable';
+import TeamsList from '../Componants/teamsList';
 
 export default function RankPage() {
   return (

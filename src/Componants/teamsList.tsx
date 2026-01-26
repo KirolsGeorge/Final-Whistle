@@ -1,4 +1,4 @@
-import { useFootballAPI } from '../../hooks/useFootballAPI';
+import { useFootballAPI } from '../hooks/useFootballAPI';
 
 export default function TeamsList() {
   const { data: teams, isLoading, error } = useFootballAPI();

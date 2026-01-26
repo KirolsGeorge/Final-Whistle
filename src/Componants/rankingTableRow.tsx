@@ -1,4 +1,4 @@
-import type { RankingTableRowPropsType } from '../../types';
+import type { RankingTableRowPropsType } from '../types/ranking';
 
 import Avatar from '/assets/football-player.jpg';
 

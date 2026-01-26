@@ -2,7 +2,7 @@ import './index.css';
 import { Outlet } from 'react-router-dom';
 import Header from './Componants/Header';
 import Dock from './Componants/Dock';
-import FAB from '../src/Componants/UI/fab';
+import FAB from '../src/Componants/fab';
 
 function App() {
   return (

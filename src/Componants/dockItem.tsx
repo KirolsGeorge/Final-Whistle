@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-import type { DockItemTypes } from '../../types';
+import type { DockItemTypes } from '../types/dockItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function DockItem(props: DockItemTypes) {
