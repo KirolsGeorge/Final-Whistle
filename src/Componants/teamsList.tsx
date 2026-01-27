@@ -4,11 +4,16 @@ export default function TeamsList() {
   const { data: teams, isLoading, error } = useFootballAPI();
 
   return (
-    <div className='dropdown'>
-      <div tabIndex={0} role='button' className='btn m-1'>
+    <div>
+      <button className='btn rounded-sm' popoverTarget='popover-1' style={{ anchorName: '--anchor-1' } /* as React.CSSProperties */}>
         Choose Team
-      </div>
-      <ul tabIndex={-1} className='dropdown-content menu bg-base-100 rounded-box w-52 p-2 shadow-sm max-h-64 overflow-y-auto flex-nowrap z-50'>
+      </button>
+      <ul
+        className='dropdown menu w-52 rounded-box bg-base-100 shadow-sm p-2 max-h-64 overflow-y-auto flex-nowrap'
+        popover='auto'
+        id='popover-1'
+        style={{ positionAnchor: '--anchor-1' }}
+      >
         {error && <li>{error.message}</li>}
         {isLoading && <span className='skeleton skeleton-text'>loading teams....</span>}
         {!isLoading &&
