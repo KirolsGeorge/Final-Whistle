@@ -10,9 +10,7 @@ export default function Header() {
       shadow-[0_20px_50px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.1)]
 
       light:bg-white/40 light:border-white/60 light:backdrop-blur-xl
-      light:shadow-[0_8px_32px_rgba(0,0,0,0.01)]
-
-      transition-all duration-500'
+      light:shadow-[0_8px_32px_rgba(0,0,0,0.01)]'
     >
       <ThemeController />
       <h1 className='flex-1 text-center text-3xl'>Final Whistle</h1>

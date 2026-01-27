@@ -14,7 +14,7 @@ export default function Modal({ open, onClose, children }: modalProprties) {
   }, [open]);
 
   return createPortal(
-    <dialog className='modal transition-all' ref={modelRef}>
+    <dialog className='modal' ref={modelRef}>
       <div className='modal-box'>
         {children}
         <div className='modal-action'>
