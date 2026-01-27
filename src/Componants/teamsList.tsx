@@ -17,8 +17,9 @@ export default function TeamsList() {
       <div tabIndex={0} role='button' className='btn m-1' ref={dropDownRef}>
         Choose Team
       </div>
-      <ul tabIndex={-1} className='dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm'>
+      <ul tabIndex={-1} className='dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm max-h-75'>
         {error && <li>{error.message}</li>}
+        {isLoading && <span className='skeleton skeleton-text'>Loading Teams...</span>}
         {!isLoading &&
           teams?.map((team) => (
             <li key={team.name} className='w-full'>
