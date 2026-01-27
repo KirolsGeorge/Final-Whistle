@@ -5,7 +5,7 @@ export default function TeamsList() {
 
   return (
     <div className='dropdown'>
-      <div tabIndex={0} role='button' className='btn m-1 transition-all duration-400'>
+      <div tabIndex={0} role='button' className='btn m-1'>
         Choose Team
       </div>
       <ul tabIndex={-1} className='dropdown-content menu bg-base-100 rounded-box w-52 p-2 shadow-sm max-h-64 overflow-y-auto flex-nowrap z-50'>
