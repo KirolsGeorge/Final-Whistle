@@ -14,7 +14,7 @@ export default function Modal({ open, onClose, children }: modalProprties) {
   }, [open]);
 
   return createPortal(
-    <dialog className='modal transition-all duration-100' ref={modelRef}>
+    <dialog className='modal transition-all duration-200' ref={modelRef}>
       <div className='modal-box'>
         {children}
         <div className='modal-action'>
