@@ -9,13 +9,13 @@ export default function TeamsList() {
         Choose Team
       </button>
       <ul
-        className='dropdown menu w-52 rounded-box bg-base-100 shadow-sm p-2'
+        className='dropdown menu w-52 rounded-box bg-base-100 shadow-sm p-2 max-h-75 overflow-y-auto flex-nowrap'
         popover='auto'
         id='popover-1'
         style={{ positionAnchor: '--anchor-1' }}
       >
         {error && <li>{error.message}</li>}
-        {isLoading && <span className='skeleton skeleton-text'>loading teams....</span>}
+        {/* {isLoading && <span className='skeleton skeleton-text'>loading teams....</span>} */}
         {!isLoading &&
           teams?.map((team) => (
             <li key={team.name} className='w-full'>
