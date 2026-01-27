@@ -16,17 +16,15 @@
 
 #root {
   height: 100dvh;
-  min-width: 100dvw;
+  width: 100dvw;
   overflow: hidden;
-  @apply transition-all min-h-dvh pl-safe-left pr-safe-right pt-safe-top pb-safe-bottom
 }
 
 body {
   margin: 0;
-  min-width: 100dvw;
+  width: 100dvw;
   height: 100dvh;
   padding: 0;
-  @apply transition-all min-h-dvh pl-safe-left pr-safe-right pt-safe-top pb-safe-bottom;
 }
 
 .no-scrollbar-buttons::-webkit-scrollbar-button {
