@@ -9,7 +9,7 @@ export default function TeamsList() {
         Choose Team
       </button>
       <ul
-        className='dropdown menu w-52 rounded-box bg-base-100 shadow-sm p-2 max-h-64 overflow-y-auto flex-nowrap'
+        className='dropdown menu w-52 rounded-box bg-base-100 shadow-sm p-2'
         popover='auto'
         id='popover-1'
         style={{ positionAnchor: '--anchor-1' }}
