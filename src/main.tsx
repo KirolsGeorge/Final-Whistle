@@ -12,7 +12,7 @@ const queryClient = new QueryClient();
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <div className='size-full min-h-dvh pl-safe-left pr-safe-right pt-safe-top pb-safe-bottom transition-all max-w-7xl'>
+      <div className='size-full min-h-dvh pl-safe-left pr-safe-right pt-safe-top pb-safe-bottom transition-all max-w-7xl mx-auto'>
         <RouterProvider router={router} />
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
