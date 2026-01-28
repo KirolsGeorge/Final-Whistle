@@ -4,4 +4,6 @@ export interface DockItemTypes {
   icon: IconDefinition;
   text: string;
   destination: string;
+  className: string;
+  onClick: () => void;
 }
