@@ -10,7 +10,7 @@ export default function Dock() {
 
   function DockItem(props: DockItemTypes) {
     return (
-      <Link to={props.destination} onClick={props.onClick} className={`flex-1 max-w-full ${props.className}`}>
+      <Link to={props.destination} onClick={props.onClick} className={`flex-1 max-w-full rounded-none ${props.className}`}>
         <FontAwesomeIcon icon={props.icon} />
         <span className='dock-label'>{props.text}</span>
       </Link>
@@ -19,7 +19,7 @@ export default function Dock() {
 
   return (
     <div
-      className='dock dock-sm rounded-t-xl dock-active pl-0 pt-1
+      className='dock dock-sm dock-active pl-0 pt-0.5
       sticky bottom-0 z-50 mx-auto mt-auto w-full border border-b-0
       
       bg-white/1 backdrop-blur-2xl border-white/5
