@@ -7,11 +7,7 @@ import RecentPage from './pages/recent';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <>
-        <App />
-      </>
-    ),
+    element: <App />,
     children: [
       {
         path: '',
