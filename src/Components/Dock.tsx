@@ -13,7 +13,7 @@ export default function Dock() {
       <Link
         to={props.destination}
         onClick={props.onClick}
-        className={`flex-1 max-w-full rounded-none m-0
+        className={`flex-1 max-w-full rounded-none m-0 flex flex-col items-center justify-center
        ${props.className}`}
       >
         <FontAwesomeIcon icon={props.icon} />
