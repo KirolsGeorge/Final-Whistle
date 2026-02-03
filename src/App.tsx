@@ -1,8 +1,8 @@
 import './index.css';
 import { Outlet } from 'react-router-dom';
 import Header from './Componants/Header';
-import Dock from './Componants/Dock';
 import FAB from './Componants/Fab';
+import Dock from './Componants/Dock';
 
 function App() {
   return (
