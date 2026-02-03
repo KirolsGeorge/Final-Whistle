@@ -1,4 +1,4 @@
-import RankingTable from '../Componants/rankingTable';
+import RankingTable from '../Componants/RankingTable';
 
 export default function RankPage() {
   return (
