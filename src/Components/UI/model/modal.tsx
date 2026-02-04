@@ -18,7 +18,7 @@ export default function Modal({ open, onClose, children, justView }: modalProprt
 
   return createPortal(
     <dialog className='modal' ref={modelRef}>
-      <div className='modal-box glass rounded'>
+      <div className='modal-box rounded'>
         {children}
         <div className='modal-action'>
           {!justView && <input type='submit' value='Save' className='btn rounded' />}
