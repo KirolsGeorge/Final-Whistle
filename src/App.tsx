@@ -1,8 +1,8 @@
 import './index.css';
 import { Outlet } from 'react-router-dom';
-import Header from './components/Header';
-import Fab from './components/Fab';
-import Dock from './components/Dock';
+import Header from './Components/Header';
+import Fab from './Components/Fab';
+import Dock from './Components/Dock';
 import useModal from './hooks/useModal';
 import { useNavigation } from 'react-router';
 import { useState } from 'react';
