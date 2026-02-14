@@ -1,4 +1,4 @@
-import ThemeController from './UI/themeController';
+import ThemeController from './ThemeController';
 
 export default function Header() {
   return (

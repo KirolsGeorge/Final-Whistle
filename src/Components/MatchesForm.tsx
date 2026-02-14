@@ -49,7 +49,7 @@ export default function MatchesForm() {
   }));
 
   return (
-    <Form method='post' className='glass rounded p-2 flex flex-col size-full gap-1'>
+    <Form method='post' className='rounded flex flex-col size-full gap-1'>
       <h1>Matches:</h1>
       <section className='flex flex-1 gap-2'>
         {Array.from({ length: 2 }, (_, i) => (
