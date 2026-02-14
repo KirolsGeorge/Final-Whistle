@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import 'dotenv/config'; // loads .env locally
+// import 'dotenv/config'; // loads .env locally
 
 export default async function handler(_req: VercelRequest, res: VercelResponse) {
   try {

@@ -1,4 +1,4 @@
-import type { TeamsResponse, Team } from '../types/teams';
+import type { TeamsResponse, Team } from '../types/types';
 import { useQuery } from '@tanstack/react-query';
 
 export function useFootballAPI() {
