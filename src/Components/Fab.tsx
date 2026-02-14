@@ -1,5 +1,5 @@
-import MatchesForm from '../components/MatchesForm';
-import Modal from '../components/Modal';
+import MatchesForm from './MatchesForm';
+import Modal from './Modal';
 import { Plus } from 'lucide-react';
 import type { UseModelReturnProps } from '../types/types';
 
