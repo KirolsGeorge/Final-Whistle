@@ -49,9 +49,9 @@ export default function MatchesForm() {
   }));
 
   return (
-    <Form method='post' className='rounded flex flex-col size-full gap-1'>
+    <Form method='post' className='rounded flex flex-col gap-1'>
       <h1>Matches:</h1>
-      <section className='flex flex-1 gap-2'>
+      <section className='flex gap-2'>
         {Array.from({ length: 2 }, (_, i) => (
           <Player key={i} title={`Player ${i + 1}: `} />
         ))}
