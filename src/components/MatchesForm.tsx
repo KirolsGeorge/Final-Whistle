@@ -9,8 +9,8 @@ type PlayerProps = {
 
 const Player = ({ title }: PlayerProps) => {
   return (
-    <label className='input rounde focus-within:outline-none focus-within:border-0 rounded'>
-      <span className='label'>{title}</span>
+    <label className='input focus-within:outline-none focus-within:border-0 rounded'>
+      <span className='label mr-0'>{title}</span>
       <input type='text' placeholder='Player Name' />
     </label>
   );
@@ -32,7 +32,7 @@ const Match = () => {
     );
   };
   return (
-    <div className='flex flex-1 gap-2 items-center justify-evenly glass p-1 rounded'>
+    <div className='flex flex-1 gap-2 items-center justify-evenly rounded'>
       {/* <h1>{ID}</h1> */}
       <section className='flex flex-1 gap-2'>
         <Team />

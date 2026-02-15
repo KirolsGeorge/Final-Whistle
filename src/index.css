@@ -27,6 +27,7 @@ body {
   padding: 0;
 }
 
+
 .no-scrollbar-buttons::-webkit-scrollbar-button {
   display: none;
   width: 0;

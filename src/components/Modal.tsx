@@ -14,7 +14,7 @@ export default function Modal({ open, onClose, children, justView = false, isSub
 
   return createPortal(
     <dialog className='modal rounded' ref={modelRef}>
-      <div className='modal-box rounded-xl overflow-hidden max-h-6/7'>
+      <div className='modal-box rounded-xl  max-h-6/7 glass p-4 bg-white/1'>
         {children}
         <div className='modal-action'>
           {!justView && !isSubmitting && <input type='submit' value='Save' className='btn rounded' />}
