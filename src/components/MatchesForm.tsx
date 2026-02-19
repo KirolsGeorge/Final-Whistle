@@ -1,64 +1,44 @@
 import { Form } from 'react-router';
-
-// type MatchProps = {
-//   ID: number;
-// };
-type PlayerProps = {
-  title: string;
-};
-
-const Player = ({ title }: PlayerProps) => {
-  return (
-    <label className='input focus-within:outline-none focus-within:border-0 rounded'>
-      <span className='label mr-0'>{title}</span>
-      <input type='text' placeholder='Player Name' />
-    </label>
-  );
-};
-
-const Match = () => {
-  const Team = () => {
-    return (
-      <section className='flex flex-col gap-2'>
-        <label className='select rounded'>
-          <span className='label'>Team</span>
-          <select>
-            <option>Personal</option>
-            <option>Business</option>
-          </select>
-        </label>
-        <Player title={`Goals:`} />
-      </section>
-    );
-  };
-  return (
-    <div className='flex flex-1 gap-2 items-center justify-evenly rounded'>
-      {/* <h1>{ID}</h1> */}
-      <section className='flex flex-1 gap-2'>
-        <Team />
-        <Team />
-      </section>
-    </div>
-  );
-};
+import TeamsList from './TeamsList';
 
 export default function MatchesForm() {
-  const matches = Array.from({ length: 5 }, (_, i) => ({
-    id: crypto.randomUUID(),
-    display: i + 1,
-  }));
-
   return (
-    <Form method='post' className='rounded flex flex-col gap-1'>
-      <h1>Matches:</h1>
-      <section className='flex gap-2'>
-        {Array.from({ length: 2 }, (_, i) => (
-          <Player key={i} title={`Player ${i + 1}: `} />
-        ))}
+    <Form className='rounded flex flex-col gap-3'>
+      <section className='flex flex-col gap-2'>
+        <h1>Players:</h1>
+        <div className='flex gap-2'>
+          {Array.from({ length: 2 }, (_, i) => (
+            <label key={`Player ${i + 1}`} className='input focus-within:outline-none focus-within:border-0 rounded'>
+              <span className='label mr-0'>{`Player ${i + 1}: `}</span>
+              <input type='text' placeholder='Player Name' />
+            </label>
+          ))}
+        </div>
       </section>
-      {matches.map((match) => (
-        <Match key={match.id} />
-      ))}
+      <section className='flex flex-col gap-2 relative'>
+        <h1>Matches:</h1>
+        <div className='flex flex-col gap-2'>
+          {Array.from({ length: 5 }, (_, i) => (
+            <div key={`Match ${i + 1}`} className='collapse collapse-arrow bg-base-100 border border-base-300 rounded-md  overflow-visible'>
+              <input type='radio' name='my-accordion-2' />
+              <div className='collapse-title font-semibold'>{`Match ${i + 1}`}</div>
+              <div className='collapse-content flex'>
+                {Array.from({ length: 2 }, (_, i) => (
+                  <fieldset key={`Team ${i + 1}`} className='fieldset rounded-box px-2 flex-1'>
+                    <legend className='fieldset-legend'>{`Team ${i + 1} details`}</legend>
+
+                    <label className='label'>Team</label>
+                    <TeamsList key={`Team ${i + 1} details`} />
+
+                    <label className='label'>Goals</label>
+                    <input type='text' className='input' placeholder='EX: 1' />
+                  </fieldset>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </Form>
   );
 }

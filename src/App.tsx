@@ -14,7 +14,7 @@ function App() {
   const isSubmitting = navigation.state === 'submitting';
   const [page, setPage] = useState<string>('Rank');
 
-  const items = [
+  const dockItems = [
     {
       icon: <Trophy size={18} />,
       text: 'Rank',
@@ -33,7 +33,7 @@ function App() {
       <Header />
       <Outlet />
       <Fab open={modal.open} openModal={modal.openModal} closeModal={modal.closeModal} isSubmitting={isSubmitting} />
-      <Dock page={page} setPage={setPage} items={items} />
+      <Dock page={page} setPage={setPage} items={dockItems} />
     </main>
   );
 }

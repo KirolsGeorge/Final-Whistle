@@ -13,17 +13,17 @@ export default function TeamsList() {
   };
 
   return (
-    <div className='dropdown'>
-      <div tabIndex={0} role='button' className='btn m-1' ref={dropDownRef}>
+    <div className='dropdown dropdown-center'>
+      <div tabIndex={0} role='button' className='btn w-full rounded' ref={dropDownRef}>
         Choose Team
       </div>
-      <ul tabIndex={-1} className='dropdown-content menu bg-base-100 rounded-box z-1 w-52 shadow-sm p-2 max-h-75 overflow-y-auto flex-nowrap'>
+      <ul tabIndex={-1} className='dropdown-content menu bg-base-100 rounded-box z-99999 w-52 shadow-sm max-h-75 overflow-y-auto flex-nowrap overflow-visible'>
         {error && <li>{error.message}</li>}
         {isLoading && <span className='skeleton skeleton-text'>Loading Teams...</span>}
         {!isLoading &&
           teams?.map((team) => (
             <li key={team.name} className='w-full'>
-              <button className='flex items-center gap-2 p-2 cursor-pointer w-full overflow-hidden' onClick={() => chooseHandel(team.name)}>
+              <button className='flex items-center gap-2 cursor-pointer w-full rounded overflow-hidden' onClick={() => chooseHandel(team.name)}>
                 <img src={team.crest} alt={team.name} className='w-8 h-8 shrink-0 bg-white rounded-2xl p-0.5' />
                 <span className='truncate'>{team.name}</span>
               </button>
