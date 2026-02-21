@@ -34,7 +34,7 @@ export default function MatchesForm() {
                     <TeamsList key={`Team ${i + 1} details`} items={teams!} isLoading={isLoading} error={error} />
 
                     <label className='label'>Goals</label>
-                    <input type='text' className='input' placeholder='EX: 1' />
+                    <input type='text' className='input rounded-md' placeholder='EX: 1' />
                   </fieldset>
                 ))}
               </div>
