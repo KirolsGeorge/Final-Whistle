@@ -15,17 +15,12 @@ export default function MatchesForm() {
 
   return (
     <Form className='rounded flex flex-col gap-3'>
-      <section className='flex flex-col overflow-visible'>
+      <section className='flex flex-col'>
         <div className='flex items-center justify-end'>
-          <button className='btn btn-ghost btn-circle' popovertarget='popover-1' style={{ anchorName: '--anchor-1' } as React.CSSProperties}>
+          <button type='button' className='btn btn-ghost btn btn-circle' popovertarget='setting' style={{ anchorName: '--anchor-1' }}>
             <Settings />
           </button>
-          <ul
-            className='dropdown menu w-52 rounded-box bg-base-100 shadow-sm'
-            popover='auto'
-            id='popover-1'
-            style={{ positionAnchor: '--anchor-1' } as React.CSSProperties}
-          >
+          <ul className='dropdown menu w-52 rounded-box bg-base-100 shadow-sm' popover={''} id='setting' style={{ positionAnchor: '--anchor-1' }}>
             <li>
               <a>Item 1</a>
             </li>

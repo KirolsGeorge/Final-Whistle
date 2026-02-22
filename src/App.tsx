@@ -32,17 +32,6 @@ function App() {
     <main className='relative size-full flex flex-col'>
       <div className='absolute top-0 left-0 size-full bg-white/9 blur-[120px] pointer-events-none' />
       <Header />
-      <button className='btn btn-ghost btn-circle' popovertarget='popover-1' style={{ anchorName: '--anchor-1' } as React.CSSProperties}>
-        <Settings />
-      </button>
-      <ul className='dropdown menu w-52 rounded-box bg-base-100 shadow-sm' popover='auto' id='popover-1' style={{ positionAnchor: '--anchor-1' } as React.CSSProperties}>
-        <li>
-          <a>Item 1</a>
-        </li>
-        <li>
-          <a>Item 2</a>
-        </li>
-      </ul>
       <Outlet context={{ selectedTeam, setSelectedTeam }} />
       <Fab open={modal.open} openModal={modal.openModal} closeModal={modal.closeModal} isSubmitting={isSubmitting} />
       <Dock page={page} setPage={setPage} items={dockItems} />
