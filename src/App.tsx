@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Fab from './components/Fab';
 import Dock from './components/Dock';
 import useModal from './hooks/useModal';
-import { Trophy, History, Settings } from 'lucide-react';
+import { Trophy, History } from 'lucide-react';
 
 function App() {
   const modal = useModal();

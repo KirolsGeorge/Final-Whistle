@@ -21,12 +21,22 @@ export default function MatchesForm() {
           <button type='button' className='btn btn-ghost btn-circle' popovertarget='setting' style={{ anchorName: '--anchor-1' } as React.CSSProperties}>
             <Settings />
           </button>
-          <ul className='dropdown menu w-52 bg-base-100 shadow-sm rounded-xl mr-9' popover='auto' id='setting' style={{ positionAnchor: '--anchor-1' } as React.CSSProperties}>
+          <ul
+            className='dropdown w-52 bg-base-300 shadow-sm rounded-xl mr-10 p-2'
+            popover='auto'
+            id='setting'
+            style={{ positionAnchor: '--anchor-1' } as React.CSSProperties}
+          >
             <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
+              <fieldset className='fieldset rounded-box flex-1'>
+                <label className='label'>Matches Number</label>
+                <select defaultValue='Pick team' className='select rounded-md' onChange={(e) => dispatch({ type: 'SET_MATCHES', payload: Number(e.target.value) })}>
+                  <option disabled={true}>Pick team</option>
+                  <option popovertarget='setting'>3</option>
+                  <option popovertarget='setting'>5</option>
+                  <option popovertarget='setting'>7</option>
+                </select>
+              </fieldset>
             </li>
           </ul>
         </div>
