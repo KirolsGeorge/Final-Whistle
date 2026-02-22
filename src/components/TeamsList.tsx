@@ -1,11 +1,8 @@
-import type { Team } from '../types/types';
-type TeamsListProps = {
-  items: Team[];
-  isLoading: boolean;
-  error: Error | null;
-};
+import { useFootballAPI } from '../hooks/useFootballAPI';
 
-export default function TeamsList({ items, isLoading, error }: TeamsListProps) {
+export default function TeamsList() {
+  const { data: teams, isLoading, error } = useFootballAPI();
+
   return (
     <select defaultValue='Pick team' className='select rounded-md'>
       <option disabled={true}>Pick team</option>
@@ -16,7 +13,7 @@ export default function TeamsList({ items, isLoading, error }: TeamsListProps) {
         </option>
       )}
       {!isLoading &&
-        items?.map((item) => (
+        teams?.map((item) => (
           <option key={item.name} onClick={() => console.log(item.name)}>
             {item.name}
           </option>

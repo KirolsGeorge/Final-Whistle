@@ -1,6 +1,5 @@
 import RankingTable from '../components/RankingTable';
 
-
 export default function RankPage() {
   return (
     <main className='p-2 flex flex-col gap-3 flex-1 size-full max-w-7xl overflow-auto'>

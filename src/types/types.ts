@@ -52,3 +52,26 @@ export type UseModelReturnProps = {
   closeModal: () => void;
   isSubmitting?: boolean;
 };
+
+export type MatchDetails = {
+  teams: Team[];
+  isLoading: boolean;
+  error: Error | null;
+};
+
+export type MatchesData = {
+  matches: MatchDetails;
+};
+
+export type ForaConfig = {
+  playersCount?: number;
+  matchesCount?: number;
+  teamsPerMatch?: number;
+};
+
+export type ForaAction =
+  | { type: 'SET_ALL'; payload: ForaConfig }
+  | { type: 'SET_PLAYERS'; payload: number }
+  | { type: 'SET_MATCHES'; payload: number }
+  | { type: 'SET_TEAMS'; payload: number }
+  | { type: 'RESET' };
