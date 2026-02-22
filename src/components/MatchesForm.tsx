@@ -3,6 +3,7 @@ import TeamsList from './TeamsList';
 import { useForaConfig } from '../features/fora/hooks/useForaConfig';
 import { Settings } from 'lucide-react';
 import 'react';
+import type React from 'react';
 
 declare module 'react' {
   interface HTMLAttributes<T> {
@@ -17,10 +18,10 @@ export default function MatchesForm() {
     <Form className='rounded flex flex-col gap-3'>
       <section className='flex flex-col'>
         <div className='flex items-center justify-end'>
-          <button type='button' className='btn btn-ghost btn btn-circle' popovertarget='setting' style={{ anchorName: '--anchor-1' }}>
+          <button type='button' className='btn btn-ghost btn-circle' popovertarget='setting' style={{ anchorName: '--anchor-1' } as React.CSSProperties}>
             <Settings />
           </button>
-          <ul className='dropdown menu w-52 rounded-box bg-base-100 shadow-sm' popover={''} id='setting' style={{ positionAnchor: '--anchor-1' }}>
+          <ul className='dropdown menu w-52 bg-base-100 shadow-sm rounded-xl mr-9' popover='auto' id='setting' style={{ positionAnchor: '--anchor-1' } as React.CSSProperties}>
             <li>
               <a>Item 1</a>
             </li>
