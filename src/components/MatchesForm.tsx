@@ -27,7 +27,7 @@ export default function MatchesForm() {
                 <label className='title'>Matches Number</label>
                 <select defaultValue='Pick a number' className='select rounded-xl ' onChange={(e) => dispatch({ type: 'SET_MATCHES', payload: Number(e.target.value) })}>
                   <option disabled={true}>Pick a number</option>
-                  <option>3 (Default)</option>
+                  <option value={3}>3 (Default)</option>
                   <option>5</option>
                   <option>7</option>
                 </select>
