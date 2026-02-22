@@ -2,7 +2,7 @@ import type { ForaAction, ForaConfig } from '../../../types/types';
 
 export const initialConfig: ForaConfig = {
   playersCount: 2,
-  matchesCount: 5,
+  matchesCount: 3,
   teamsPerMatch: 2,
 };
 
