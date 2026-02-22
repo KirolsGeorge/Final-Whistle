@@ -27,7 +27,7 @@ export default function MatchesForm() {
                 <label className='title'>Matches Number</label>
                 <select defaultValue='Pick a number' className='select rounded-xl ' onChange={(e) => dispatch({ type: 'SET_MATCHES', payload: Number(e.target.value) })}>
                   <option disabled={true}>Pick a number</option>
-                  <option>3</option>
+                  <option>3 (Default)</option>
                   <option>5</option>
                   <option>7</option>
                 </select>
@@ -66,7 +66,7 @@ export default function MatchesForm() {
                         <TeamsList key={`Team ${i + 1} details`} />
 
                         <label className='label'>Goals</label>
-                        <input type='text' className='input rounded-md' placeholder='EX: 1' />
+                        <input type='number' className='input rounded-md' placeholder='EX: 1' min={0} max={10} />
                       </fieldset>
                     ))}
                 </div>
