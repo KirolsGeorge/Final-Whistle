@@ -21,26 +21,21 @@ export default function MatchesForm() {
           <button type='button' className='btn btn-ghost btn-circle' popovertarget='setting' style={{ anchorName: '--anchor-1' } as React.CSSProperties}>
             <Settings />
           </button>
-          <ul
-            className='dropdown w-52 bg-base-300 shadow-sm rounded-xl mr-10 p-2'
-            popover='auto'
-            id='setting'
-            style={{ positionAnchor: '--anchor-1' } as React.CSSProperties}
-          >
+          <ul className='dropdown w-52 glass rounded-xl mr-10 p-2' popover='auto' id='setting' style={{ positionAnchor: '--anchor-1' } as React.CSSProperties}>
             <li>
               <fieldset className='fieldset rounded-box flex-1'>
-                <label className='label'>Matches Number</label>
-                <select defaultValue='Pick team' className='select rounded-md' onChange={(e) => dispatch({ type: 'SET_MATCHES', payload: Number(e.target.value) })}>
-                  <option disabled={true}>Pick team</option>
-                  <option popovertarget='setting'>3</option>
-                  <option popovertarget='setting'>5</option>
-                  <option popovertarget='setting'>7</option>
+                <label className='title'>Matches Number</label>
+                <select defaultValue='Pick a number' className='select rounded-xl ' onChange={(e) => dispatch({ type: 'SET_MATCHES', payload: Number(e.target.value) })}>
+                  <option disabled={true}>Pick a number</option>
+                  <option>3</option>
+                  <option>5</option>
+                  <option>7</option>
                 </select>
               </fieldset>
             </li>
           </ul>
         </div>
-        <h1 className='mb-1'>Players:</h1>
+        <div className='mb-1'>Players:</div>
         <div className='flex gap-2'>
           {config.playersCount &&
             Array.from({ length: config.playersCount }, (_, i) => (
