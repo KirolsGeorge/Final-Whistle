@@ -39,8 +39,8 @@ export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesForm
       const formData = new FormData(e.currentTarget);
       const data = Object.fromEntries(formData.entries());
 
-      const player1 = data.player1.toString().toLocaleLowerCase();
-      const player2 = data.player2.toString().toLocaleLowerCase();
+      const player1 = data.player1.toString().toLocaleLowerCase().trim();
+      const player2 = data.player2.toString().toLocaleLowerCase().trim();
 
       await createFora({
         gameId: '2852001.Games',

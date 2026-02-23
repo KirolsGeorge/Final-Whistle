@@ -20,12 +20,11 @@ export async function createFora(submission: ForaSubmission) {
 
   const player1Ref = doc(db, 'players', submission.player1);
   const player2Ref = doc(db, 'players', submission.player2);
-
+  
   const player1Snap = await getDoc(player1Ref);
   const player2Snap = await getDoc(player2Ref);
 
   const p1 = player1Snap.exists() ? player1Snap.data() : { wins: 0, losses: 0, draws: 0, totalForas: 0 };
-
   const p2 = player2Snap.exists() ? player2Snap.data() : { wins: 0, losses: 0, draws: 0, totalForas: 0 };
 
   if (result === 'player1') {

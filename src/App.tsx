@@ -26,6 +26,7 @@ function App() {
     },
   ];
 
+
   return (
     <main className='relative size-full flex flex-col'>
       <div className='absolute top-0 left-0 size-full bg-white/9 blur-[120px] pointer-events-none' />

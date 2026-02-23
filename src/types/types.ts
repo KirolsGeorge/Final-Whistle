@@ -35,11 +35,20 @@ export type PlayerStats = {
   totalForas: number;
 };
 
+export type PlayerFireBase = {
+  id: string;
+  wins: number;
+  losses: number;
+  draws: number;
+  totalForas: number;
+};
+
 export type RankingTableRowPropsType = {
   position: number;
   playerName: string;
-  WinScore: number;
-  LoseScore: number;
+  winScore: number;
+  loseScore: number;
+  drawScore: number;
 };
 
 export type Team = {

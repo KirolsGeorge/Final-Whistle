@@ -1,3 +1,4 @@
+import { usePlayers } from '../hooks/usePlayers';
 import type { RankingTableRowPropsType } from '../types/types';
 
 import Avatar from '/assets/football-player.jpg';
@@ -16,13 +17,15 @@ function RankingTableRow(props: RankingTableRowPropsType) {
           <div>{props.playerName}</div>
         </div>
       </td>
-      <td>{props.WinScore}</td>
-      <td>{props.LoseScore}</td>
+      <td>{props.winScore}</td>
+      <td>{props.loseScore}</td>
+      <td>{props.drawScore}</td>
     </tr>
   );
 }
 
 export default function RankingTable() {
+  const { players, loading, error } = usePlayers();
   return (
     <div className='overflow-x-auto'>
       <table className='table table-zebra'>
@@ -32,12 +35,38 @@ export default function RankingTable() {
             <th>Player Name</th>
             <th>W</th>
             <th>L</th>
+            <th>D</th>
           </tr>
         </thead>
         <tbody>
-          {<RankingTableRow position={1} playerName='Andrew Nageh' WinScore={15} LoseScore={14} />}
-          {<RankingTableRow position={2} playerName='Andrew Nageh' WinScore={14} LoseScore={13} />}
-          {<RankingTableRow position={3} playerName='Andrew Nageh' WinScore={13} LoseScore={12} />}
+          {!loading &&
+            players.map((player, index) => (
+              <RankingTableRow key={player.id} position={index + 1} playerName={player.id} winScore={player.wins} loseScore={player.losses} drawScore={player.draws} />
+            ))}
+
+          {loading && (
+            <tr>
+              <td colSpan={4} className='p-4'>
+                <div className='flex w-52 flex-col gap-4'>
+                  <div className='flex items-center gap-4'>
+                    <div className='skeleton h-16 w-16 shrink-0 rounded-full'></div>
+                    <div className='flex flex-col gap-4'>
+                      <div className='skeleton h-4 w-20'></div>
+                      <div className='skeleton h-4 w-28'></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          )}
+
+          {error && (
+            <tr>
+              <td colSpan={4} className='p-4 text-red-500'>
+                {error}
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
