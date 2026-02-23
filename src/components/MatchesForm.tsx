@@ -17,11 +17,16 @@ export default function MatchesForm() {
   return (
     <Form className='rounded flex flex-col gap-3'>
       <section className='flex flex-col'>
-        <div className='flex items-center justify-end'>
+        <div className='flex items-center justify-end relative'>
           <button type='button' className='btn btn-ghost btn-circle' popovertarget='setting' style={{ anchorName: '--anchor-1' } as React.CSSProperties}>
             <Settings />
           </button>
-          <ul className='dropdown w-52 glass rounded-xl mr-10 p-2' popover='auto' id='setting' style={{ positionAnchor: '--anchor-1' } as React.CSSProperties}>
+          <ul
+            className='dropdown w-52 glass rounded-xl p-2 cursor-pointer -left-45'
+            popover=''
+            id='setting'
+            style={{ positionAnchor: '--anchor-1' } as React.CSSProperties}
+          >
             <li>
               <fieldset className='fieldset rounded-box flex-1'>
                 <label className='title'>Matches Number</label>
