@@ -1,6 +1,5 @@
 import './index.css';
 import { Outlet } from 'react-router-dom';
-import { useNavigation } from 'react-router';
 import { useState } from 'react';
 import Header from './components/Header';
 import Fab from './components/Fab';
@@ -10,10 +9,9 @@ import { Trophy, History } from 'lucide-react';
 
 function App() {
   const modal = useModal();
-  const navigation = useNavigation();
-  const isSubmitting = navigation.state === 'submitting';
   const [page, setPage] = useState<string>('Rank');
   const [selectedTeam, setSelectedTeam] = useState<string>();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const dockItems = [
     {
@@ -33,7 +31,7 @@ function App() {
       <div className='absolute top-0 left-0 size-full bg-white/9 blur-[120px] pointer-events-none' />
       <Header />
       <Outlet context={{ selectedTeam, setSelectedTeam }} />
-      <Fab open={modal.open} openModal={modal.openModal} closeModal={modal.closeModal} isSubmitting={isSubmitting} />
+      <Fab open={modal.open} openModal={modal.openModal} closeModal={modal.closeModal} isSubmitting={isSubmitting} setIsSubmitting={setIsSubmitting} />
       <Dock page={page} setPage={setPage} items={dockItems} />
     </main>
   );

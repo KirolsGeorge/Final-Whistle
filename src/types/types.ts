@@ -1,3 +1,6 @@
+import type { Timestamp } from 'firebase/firestore';
+import type { Dispatch, SetStateAction } from 'react';
+
 export type DockProps = {
   page: string;
   setPage: React.Dispatch<React.SetStateAction<string>>;
@@ -7,8 +10,8 @@ export type DockProps = {
 export type SingleMatch = {
   player1Team: string;
   player2Team: string;
-  player1Goals: string;
-  player2Gaols: string;
+  player1Goals: number;
+  player2Goals: number;
   matchWinner: string | null;
 };
 
@@ -18,15 +21,18 @@ export type ForaSubmission = {
   player1: string;
   player2: string;
   matches: SingleMatch[];
-  foraWinner: string;
-  foraLoser: string;
-  createdAt: number;
+  result?: 'player1' | 'player2' | 'draw';
+  player1Wins?: number;
+  player2Wins?: number;
+  createdAt?: Timestamp;
 };
 
 export type PlayerStats = {
   name: string;
   wins: number;
   losses: number;
+  draws: number;
+  totalForas: number;
 };
 
 export type RankingTableRowPropsType = {
@@ -51,6 +57,7 @@ export type UseModelReturnProps = {
   openModal: () => void;
   closeModal: () => void;
   isSubmitting?: boolean;
+  setIsSubmitting: Dispatch<SetStateAction<boolean>>;
 };
 
 export type MatchDetails = {

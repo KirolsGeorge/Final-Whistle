@@ -3,7 +3,7 @@ import Modal from './Modal';
 import { Plus } from 'lucide-react';
 import type { UseModelReturnProps } from '../types/types';
 
-export default function Fab({ open, openModal, closeModal, isSubmitting }: UseModelReturnProps) {
+export default function Fab({ open, openModal, closeModal, isSubmitting, setIsSubmitting }: UseModelReturnProps) {
   return (
     <>
       <div className='fab mb-22 z-60 fixed bottom-safe right-safe m-4'>
@@ -15,7 +15,7 @@ export default function Fab({ open, openModal, closeModal, isSubmitting }: UseMo
         </button>
       </div>
       <Modal open={open} onClose={closeModal} isSubmitting={isSubmitting}>
-        <MatchesForm />
+        <MatchesForm setIsSubmitting={setIsSubmitting} closeModal={closeModal} />
       </Modal>
     </>
   );
