@@ -2,14 +2,7 @@ import { Form } from 'react-router';
 import TeamsList from './TeamsList';
 import { useForaConfig } from '../features/fora/hooks/useForaConfig';
 import { Settings } from 'lucide-react';
-import 'react';
-import type React from 'react';
 
-declare module 'react' {
-  interface HTMLAttributes<T> {
-    popovertarget?: string;
-  }
-}
 
 export default function MatchesForm() {
   const [config, dispatch] = useForaConfig();
