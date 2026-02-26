@@ -1,23 +1,25 @@
 import { useEffect, useState } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../lib/firebase';
-import type { PlayerFireBase } from '../types/types';
+import type { ForaSubmission } from '../types/types';
 
-export function usePlayers() {
-  const [players, setPlayers] = useState<PlayerFireBase[]>([]);
+export function useForas() {
+  const [foras, setForas] = useState<ForaSubmission[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+
+
   useEffect(() => {
     const unsubscribe = onSnapshot(
-      collection(db, 'players'),
+      collection(db, 'foras'),
       (snapshot) => {
-        const playersData = snapshot.docs.map((doc) => ({
-          id: doc.id,
+        const forasData = snapshot.docs.map((doc) => ({
+          foraId: doc.id,
           ...doc.data(),
-        })) as PlayerFireBase[];
+        })) as ForaSubmission[];
 
-        setPlayers(playersData);
+        setForas(forasData);
         setLoading(false);
       },
       (err) => {
@@ -29,5 +31,5 @@ export function usePlayers() {
     return () => unsubscribe();
   }, []);
 
-  return { players, loading, error };
+  return { foras, loading, error };
 }

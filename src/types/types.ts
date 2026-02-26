@@ -16,6 +16,7 @@ export type SingleMatch = {
 };
 
 export type ForaSubmission = {
+  foraId?: string
   gameId: string;
   secret: string;
   player1: string;

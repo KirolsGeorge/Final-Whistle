@@ -23,6 +23,8 @@ export function useFootballAPI() {
     }));
   }
 
+  
+
   return useQuery<Team[], Error>({
     queryKey: ['teams'],
     queryFn: fetchTeams,

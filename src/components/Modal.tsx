@@ -14,10 +14,10 @@ export default function Modal({ open, onClose, children, justView = false, isSub
 
   return createPortal(
     <dialog className='modal rounded' ref={modelRef}>
-      <div className='modal-box rounded-xl max-h-6/7 glass p-4 border border-white/10'>
+      <div className='modal-box backdrop-blur-sm bg-black/40 light:bg-white/70 rounded-xl max-h-6/7 p-4 border border-white/20 light:border-black/20'>
         {children}
         <div className='modal-action'>
-          {!justView && !isSubmitting && <input form='matches-form' type='submit' value='Save' className='btn rounded glass' />}
+          {!justView && !isSubmitting && <input form='matches-form' type='submit' value='Save' className='btn rounded border-white/20 light:border-black/20' />}
           {!justView && isSubmitting && (
             <button className='btn rounded border border-base-300' disabled>
               <span className='loading loading-spinner'></span>

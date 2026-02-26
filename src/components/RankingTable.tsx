@@ -67,6 +67,13 @@ export default function RankingTable() {
               </td>
             </tr>
           )}
+          {players.length === 0 && !loading && (
+            <tr>
+              <td colSpan={4} className='p-4 text-red-500'>
+                Add fora and try again!
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

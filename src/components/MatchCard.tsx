@@ -1,6 +1,6 @@
 export default function MatchCard({ match, matchIndex, teams, isLoading, error, setMatches }: any) {
   return (
-    <div className='collapse collapse-arrow bg-base-100 border border-base-300 rounded-md'>
+    <div className='collapse collapse-arrow bg-base-100 border border-white/20 light:border-black/20  rounded-md '>
       <input type='radio' name='my-accordion-2' defaultChecked={matchIndex === 0} />
 
       <div className='collapse-title font-semibold'>Match {matchIndex + 1}</div>

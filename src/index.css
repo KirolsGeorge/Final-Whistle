@@ -1,7 +1,12 @@
 @import 'tailwindcss';
 @plugin "daisyui" {
-  themes: all;
+  themes:
+    light --default,
+    black --prefersblack;
 }
+
+@custom-variant light (&:where([data-theme=light], [data-theme=light] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -25,6 +30,10 @@ body {
   width: 100dvw;
   height: 100dvh;
   padding: 0;
+}
+
+.pglass {
+  backdrop-filter: blur(40px);
 }
 
 .no-scrollbar-buttons::-webkit-scrollbar-button {
