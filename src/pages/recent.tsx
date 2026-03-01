@@ -4,7 +4,7 @@ import { useForas } from '../hooks/useForas';
 
 export default function RecentPage() {
   const { foras, loading: forasLoading, error } = useForas();
-  const { data: teams, isLoading: teamsLoading } = useFootballAPI();
+  const { data: teams, isLoading: teamsLoading, error: teamsError } = useFootballAPI();
 
   function formatMatchDate(timestamp?: any) {
     if (!timestamp) return '';
@@ -39,7 +39,7 @@ export default function RecentPage() {
             const team2 = teamsMap[match.player2Team];
 
             return (
-              <div key={`${fora.foraId}: Match ${i+1}`} className='flex items-center gap-6 border-b py-3'>
+              <div key={`${fora.foraId}: Match ${i + 1}`} className='flex items-center gap-6 border-b py-3'>
                 {/* Team 1 */}
                 <div className='flex items-center gap-2'>
                   {team1 && (
@@ -66,6 +66,7 @@ export default function RecentPage() {
                 <div className='ml-auto font-semibold'>
                   {match.player1Goals} - {match.player2Goals}
                 </div>
+                {!team1 || (!team2 && console.log(teamsError))}
               </div>
             );
           })}
