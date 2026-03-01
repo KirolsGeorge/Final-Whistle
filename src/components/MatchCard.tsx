@@ -15,7 +15,7 @@ export default function MatchCard({ match, matchIndex, teams, isLoading, error, 
             <select
               required
               name={`choosenTeam${teamIndex + 1}`}
-              className='select rounded-md'
+              className='select rounded-md cursor-pointer'
               value={team.team}
               onChange={(e) => {
                 setMatches((prev: any) => {
@@ -44,7 +44,7 @@ export default function MatchCard({ match, matchIndex, teams, isLoading, error, 
             <select
               required
               name={`Team Goals ${teamIndex + 1}`}
-              className='select rounded-md'
+              className='select rounded-md  cursor-pointer'
               defaultValue={'Pick a number'}
               onChange={(e) => {
                 setMatches((prev: any) => {
