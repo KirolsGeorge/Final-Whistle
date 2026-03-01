@@ -22,6 +22,8 @@ export default function RecentPage() {
     return Object.fromEntries(teams.map((team) => [team.name, team]));
   }, [teams]);
 
+  console.log(teamsMap);
+
   if (forasLoading || teamsLoading) return <p>Loading...</p>;
   if (error) return <p className='text-red-500'>{error}</p>;
   if (!foras || foras.length === 0) return <p>No foras found</p>;
@@ -34,7 +36,7 @@ export default function RecentPage() {
         <div key={fora.foraId} className='mb-10 border p-4 rounded'>
           <h2 className='text-lg font-semibold mb-4'>Fora Time: {formatMatchDate(fora.createdAt)}</h2>
 
-          {fora.matches?.map((match,i) => {
+          {fora.matches?.map((match, i) => {
             const team1 = teamsMap[match.player1Team];
             const team2 = teamsMap[match.player2Team];
 

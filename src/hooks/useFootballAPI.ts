@@ -14,7 +14,6 @@ export function useFootballAPI() {
       const res = await fetch('/api/teams');
       if (!res.ok) throw new Error('API Error: ' + res.status);
       data = await res.json();
-      console.log(data.teams);
     }
 
     return data.teams.map((team: Team) => ({
