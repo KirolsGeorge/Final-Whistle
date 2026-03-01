@@ -9,23 +9,22 @@ import { Trophy, History } from 'lucide-react';
 
 function App() {
   const modal = useModal();
-  const [page, setPage] = useState<string>('Rank');
+  const [page, setPage] = useState<string>(location.pathname === '/' ? 'rank' : location.pathname.split('/')[1] === 'recent' ? 'recent' : '');
   const [selectedTeam, setSelectedTeam] = useState<string>();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const dockItems = [
     {
       icon: <Trophy size={18} />,
-      text: 'Rank',
+      text: 'rank',
       to: '/',
     },
     {
       icon: <History size={18} />,
-      text: 'Recent',
-      to: '/recent-matches',
+      text: 'recent',
+      to: '/recent',
     },
   ];
-
 
   return (
     <main className='relative size-full flex flex-col'>

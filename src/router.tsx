@@ -14,7 +14,7 @@ const router = createBrowserRouter([
         element: <RankPage />,
       },
       {
-        path: 'recent-matches',
+        path: 'recent',
         element: <RecentPage />,
       },
     ],

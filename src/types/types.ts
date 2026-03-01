@@ -15,6 +15,16 @@ export type SingleMatch = {
   matchWinner: string | null;
 };
 
+export type ForaMatches = {
+  match: SingleMatch;
+  team1: Team;
+  team2: Team;
+  players: {
+    player1: string;
+    player2: string;
+  };
+};
+
 export type ForaSubmission = {
   foraId?: string;
   gameId: string;
@@ -56,6 +66,14 @@ export type Team = {
   name: string;
   crest: string;
   tla: string;
+};
+
+export type ForasMatches = {
+  foras: ForaSubmission[];
+  teams: Team[] | undefined;
+  open: boolean;
+  openModal: () => void;
+  closeModal: () => void;
 };
 
 export type TeamsResponse = {
