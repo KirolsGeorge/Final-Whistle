@@ -34,12 +34,12 @@ export default function RecentPage() {
         <div key={fora.foraId} className='mb-10 border p-4 rounded'>
           <h2 className='text-lg font-semibold mb-4'>Fora Time: {formatMatchDate(fora.createdAt)}</h2>
 
-          {fora.matches?.map((match) => {
+          {fora.matches?.map((match,i) => {
             const team1 = teamsMap[match.player1Team];
             const team2 = teamsMap[match.player2Team];
 
             return (
-              <div key={`${match}`} className='flex items-center gap-6 border-b py-3'>
+              <div key={`${fora.foraId}: Match ${i+1}`} className='flex items-center gap-6 border-b py-3'>
                 {/* Team 1 */}
                 <div className='flex items-center gap-2'>
                   {team1 && (
