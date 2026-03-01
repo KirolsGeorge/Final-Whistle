@@ -8,6 +8,8 @@ export async function createFora(submission: ForaSubmission) {
 
   const foraRef = doc(collection(db, 'foras'));
 
+  console.log(submission);
+
   await runTransaction(db, async (tx) => {
     tx.set(foraRef, {
       ...submission,

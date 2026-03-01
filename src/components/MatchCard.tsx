@@ -14,12 +14,13 @@ export default function MatchCard({ match, matchIndex, teams, isLoading, error, 
 
             <select
               required
-              name={`choosenTeam${teamIndex + 1}`}
+              name={`chosenTeam${teamIndex + 1}`}
               className='select rounded-md cursor-pointer'
               value={team.team}
               onChange={(e) => {
                 setMatches((prev: any) => {
                   const updated = [...prev];
+                  console.log(updated);
                   updated[matchIndex].teams[teamIndex].team = e.target.value;
                   return updated;
                 });
@@ -33,7 +34,7 @@ export default function MatchCard({ match, matchIndex, teams, isLoading, error, 
               {isLoading && <option>Loading...</option>}
 
               {teams?.map((item: any) => (
-                <option key={item.name} value={item.name}>
+                <option key={item.name} value={item.tla}>
                   {item.name}
                 </option>
               ))}

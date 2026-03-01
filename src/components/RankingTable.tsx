@@ -10,7 +10,7 @@ function RankingTableRow(props: RankingTableRowPropsType) {
       <td>
         <div className='flex items-center gap-3'>
           <div className='avatar'>
-            <div className='mask mask-squircle size-8'>
+            <div className='mask mask-circle size-8'>
               <img src={Avatar} alt='Avatar Tailwind CSS Component' />
             </div>
           </div>
