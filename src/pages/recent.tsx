@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useFootballAPI } from '../hooks/useFootballAPI';
 import { useForas } from '../hooks/useForas';
+// import type { Team } from '../types/types';
 
 export default function RecentPage() {
   const { foras, loading: forasLoading, error } = useForas();
@@ -35,11 +36,15 @@ export default function RecentPage() {
           <h2 className='text-lg font-semibold mb-4'>Fora Time: {formatMatchDate(fora.createdAt)}</h2>
 
           {fora.matches?.map((match, i) => {
-            const team1 = teamsMap[match.player1Team];
+            if (!teams) return;
+            const team1 = teams.map((team) => {
+              if (team.name.includes(match.player1Team)) {
+                return team;
+              }
+            });
             const team2 = teamsMap[match.player2Team];
-            console.log(teamsMap);
-            console.log(match.player2Team);
-            console.log(teamsMap[match.player2Team]);
+            console.log('team1:' + team1);
+            console.log(match.player1Team);
 
             return (
               <div key={`${fora.foraId}: Match ${i + 1}`} className='flex items-center gap-6 border-b py-3'>
@@ -47,8 +52,8 @@ export default function RecentPage() {
                 <div className='flex items-center gap-2'>
                   {team1 && (
                     <>
-                      <img src={team1.crest} alt={team1.name} className='w-8 h-8' />
-                      <span>{team1.name}</span>
+                      {/* <img src={team1.crest} alt={team1.name} className='w-8 h-8' />
+                      <span>{team1.name}</span> */}
                     </>
                   )}
                 </div>
