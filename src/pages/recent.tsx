@@ -37,7 +37,7 @@ export default function RecentPage() {
 
           {fora.matches?.map((match, i) => {
             if (!teams) return;
-            const team1 = teams.map((team) => {
+            const team1 = teams.filter((team) => {
               if (team.name.includes(match.player1Team)) {
                 return team;
               }
