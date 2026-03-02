@@ -56,7 +56,7 @@ export default function Foras({ foras, teams, open, openModal, closeModal }: For
         </div>
       ))}
       <Modal open={open} onClose={closeModal} justView={true}>
-        <div className='flex flex-col gap-4 backdrop-blur-xs bg-black/10 light:bg-white/70'>
+        <div className='flex flex-col gap-4'>
           {selectedFora &&
             selectedFora.matches?.map((match, i) => {
               if (!teams) return;

@@ -11,7 +11,7 @@ export default function RecentPage() {
   const { open, openModal, closeModal } = useModal();
 
   return (
-    <div className='p-2 flex flex-col gap-3 flex-1 size-full max-w-7xl'>
+    <div className='p-2 flex flex-col gap-3 flex-1 size-full max-w-7xl overflow-scroll'>
       <h1 className='font-bold'>Recent Foras</h1>
       {!forasLoading && !teamsLoading && <Foras foras={foras} teams={teams} open={open} closeModal={closeModal} openModal={openModal} />}
       {forasLoading && <LoadingSkeleton skeletonType={'loadingForas'} />}
