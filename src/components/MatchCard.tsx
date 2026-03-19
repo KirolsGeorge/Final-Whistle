@@ -1,4 +1,6 @@
-export default function MatchCard({ match, matchIndex, teams, isLoading, error, setMatches }: any) {
+export default function MatchCard({ match, matchIndex, teams, isLoading, setMatches }: any) {
+
+
   return (
     <div className='collapse collapse-arrow bg-base-100 border border-white/20 light:border-black/20  rounded-md '>
       <input type='radio' name='my-accordion-2' defaultChecked={matchIndex === 0} />
@@ -30,7 +32,6 @@ export default function MatchCard({ match, matchIndex, teams, isLoading, error, 
                 Pick a team
               </option>
 
-              {error && <option disabled>{error.message}</option>}
               {isLoading && <option>Loading...</option>}
 
               {teams?.map((item: any) => (

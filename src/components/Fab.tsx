@@ -1,9 +1,9 @@
 import MatchesForm from './MatchesForm';
 import Modal from './Modal';
 import { Plus } from 'lucide-react';
-import type { UseModelReturnProps } from '../types/types';
+import type { FabProps } from '../types/types';
 
-export default function Fab({ open, openModal, closeModal, isSubmitting, setIsSubmitting }: UseModelReturnProps) {
+export default function Fab({ open, openModal, closeModal, isSubmitting, setIsSubmitting }: FabProps) {
   return (
     <>
       <div className='fab mb-22 z-60 fixed bottom-safe right-safe m-4 shadow shadow-white light:shadow-black rounded-full'>

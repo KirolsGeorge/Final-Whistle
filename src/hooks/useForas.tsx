@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import type { ForaSubmission } from '../types/types';
+import { useToast } from './useToast';
 
 export function useForas() {
   const [foras, setForas] = useState<ForaSubmission[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-
+  const { showToast } = useToast();
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -19,11 +18,12 @@ export function useForas() {
           ...doc.data(),
         })) as ForaSubmission[];
 
+        if (forasData.length < 1) showToast('error', 'No foras found!');
         setForas(forasData);
         setLoading(false);
       },
       (err) => {
-        setError(err.message);
+        showToast('error', err.message);
         setLoading(false);
       }
     );
@@ -31,5 +31,5 @@ export function useForas() {
     return () => unsubscribe();
   }, []);
 
-  return { foras, loading, error };
+  return { foras, loading };
 }

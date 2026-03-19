@@ -5,6 +5,7 @@ import { useFootballAPI } from '../hooks/useFootballAPI';
 import PlayersSection from './PlayersSection';
 import MatchCard from './MatchCard';
 import { createFora } from '../services/foraService';
+import { useToast } from '../hooks/useToast';
 
 type MatchesFormProps = {
   setIsSubmitting: Dispatch<SetStateAction<boolean>>;
@@ -14,10 +15,14 @@ type MatchesFormProps = {
 export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesFormProps) {
   const [config, dispatch] = useForaConfig();
   const { data: teams, isLoading, error } = useFootballAPI();
-
   const [matches, setMatches] = useState<any[]>([]);
+  const { showToast } = useToast();
 
   useEffect(() => {
+     if (error) {
+       showToast('error', error.message);
+    }
+    
     if (!config.matchesCount || !config.teamsPerMatch) return;
 
     setMatches(
@@ -59,7 +64,7 @@ export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesForm
       });
       closeModal();
     } catch (err) {
-      console.error(err);
+      showToast('error', `${err}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -114,7 +119,7 @@ export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesForm
 
       <div className='flex flex-col gap-2'>
         {matches.map((match, matchIndex) => (
-          <MatchCard key={matchIndex} match={match} matchIndex={matchIndex} teams={teams} isLoading={isLoading} error={error} setMatches={setMatches} />
+          <MatchCard key={matchIndex} match={match} matchIndex={matchIndex} teams={teams} isLoading={isLoading} setMatches={setMatches} />
         ))}
       </div>
     </form>

@@ -1,8 +1,10 @@
 import type { TeamsResponse, Team } from '../types/types';
 import { useQuery } from '@tanstack/react-query';
+import { useToast } from './useToast';
 
 export function useFootballAPI() {
   async function fetchTeams(): Promise<Team[]> {
+    const { showToast } = useToast();
     const isDev = import.meta.env.DEV;
     let data: TeamsResponse;
 
@@ -12,7 +14,7 @@ export function useFootballAPI() {
       data = { teams: mock.teams } as TeamsResponse;
     } else {
       const res = await fetch('/api/teams');
-      if (!res.ok) throw new Error('API Error: ' + res.status);
+      if (!res.ok) showToast('error', `API Error: ${res.status}`);
       data = await res.json();
     }
 

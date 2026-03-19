@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import type { PlayerFireBase } from '../types/types';
+import { useToast } from './useToast';
 
 export function usePlayers() {
   const [players, setPlayers] = useState<PlayerFireBase[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { showToast } = useToast();
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -17,11 +18,13 @@ export function usePlayers() {
           ...doc.data(),
         })) as PlayerFireBase[];
 
+        if (playersData.length < 1) showToast('error', 'No Players found!');
+
         setPlayers(playersData);
         setLoading(false);
       },
       (err) => {
-        setError(err.message);
+        showToast('error', err.message);
         setLoading(false);
       }
     );
@@ -29,5 +32,5 @@ export function usePlayers() {
     return () => unsubscribe();
   }, []);
 
-  return { players, loading, error };
+  return { players, loading };
 }

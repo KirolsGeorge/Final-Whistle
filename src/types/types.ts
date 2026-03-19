@@ -4,7 +4,7 @@ import type { Dispatch, SetStateAction } from 'react';
 export type DockProps = {
   page: string;
   setPage: React.Dispatch<React.SetStateAction<string>>;
-  items: { icon: React.ReactNode; text: string; to: string }[];
+  items: { icon: React.ReactNode; text: string; to: string; disabled?: true }[];
 };
 
 export type SingleMatch = {
@@ -80,12 +80,18 @@ export type TeamsResponse = {
   teams: Team[];
 };
 
-export type UseModelReturnProps = {
+export type FabProps = {
   open: boolean;
   openModal: () => void;
   closeModal: () => void;
   isSubmitting?: boolean;
   setIsSubmitting: Dispatch<SetStateAction<boolean>>;
+};
+
+export type UseModelReturnProps = {
+  open: boolean;
+  openModal: () => void;
+  closeModal: () => void;
 };
 
 export type MatchDetails = {
@@ -110,3 +116,5 @@ export type ForaAction =
   | { type: 'SET_MATCHES'; payload: number }
   | { type: 'SET_TEAMS'; payload: number }
   | { type: 'RESET' };
+
+export type ToastType = 'success' | 'error' | 'info' | 'warning';

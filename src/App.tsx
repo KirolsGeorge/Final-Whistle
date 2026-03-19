@@ -9,15 +9,17 @@ import { Trophy, History } from 'lucide-react';
 
 function App() {
   const modal = useModal();
-  const [page, setPage] = useState<string>(location.pathname === '/' ? 'rank' : location.pathname.split('/')[1] === 'recent' ? 'recent' : '');
+  const [page, setPage] = useState<string>(location.pathname === '/' ? 'rank' : location.pathname.split('/')[1] === 'recent' ? 'recent' : 'account');
   const [selectedTeam, setSelectedTeam] = useState<string>();
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+
 
   const dockItems = [
     {
       icon: <Trophy size={18} />,
       text: 'rank',
-      to: '/',
+      to: '/rank',
     },
     {
       icon: <History size={18} />,
