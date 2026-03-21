@@ -4,13 +4,13 @@ import Toast from '../components/Toast';
 import type { ToastType } from '../types/types';
 
 export function ToastProvider({ children }: { children: React.ReactNode }) {
-  const [toast, setToast] = useState<{ type: ToastType; message: string; visible: boolean }>({
+  const [toast, setToast] = useState<{ type: ToastType; message: any; visible: boolean }>({
     type: 'info',
     message: '',
     visible: false,
   });
 
-  function showToast(type: ToastType, message: string) {
+  function showToast(type: ToastType, message: any) {
     setToast({ type, message, visible: true });
 
     setTimeout(() => {

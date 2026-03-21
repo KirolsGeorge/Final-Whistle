@@ -18,7 +18,6 @@ export function useForas() {
           ...doc.data(),
         })) as ForaSubmission[];
 
-        if (forasData.length < 1) showToast('error', 'No foras found!');
         setForas(forasData);
         setLoading(false);
       },

@@ -18,8 +18,6 @@ export function usePlayers() {
           ...doc.data(),
         })) as PlayerFireBase[];
 
-        if (playersData.length < 1) showToast('error', 'No Players found!');
-
         setPlayers(playersData);
         setLoading(false);
       },

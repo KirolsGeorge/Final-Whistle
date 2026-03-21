@@ -1,5 +1,6 @@
 import { usePlayers } from '../hooks/usePlayers';
 import type { RankingTableRowPropsType } from '../types/types';
+import ErrorMessage from './ErrorMessage';
 import LoadingSkeleton from './LoadingSkeleton';
 
 import Avatar from '/assets/football-player.jpg';
@@ -29,6 +30,7 @@ export default function RankingTable() {
   const { players, loading } = usePlayers();
   return (
     <div className='overflow-x-auto'>
+      {players.length === 0 && !loading && <ErrorMessage message={'No players found!'} />}
       {players.length != 0 && !loading && (
         <table className='table table-zebra'>
           <thead>

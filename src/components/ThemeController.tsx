@@ -15,7 +15,7 @@ export default function ThemeController() {
   const isDark = theme === 'black';
 
   return (
-    <label className='swap swap-rotate cursor-pointer'>
+    <label className='swap swap-rotate pl-4'>
       <input type='checkbox' checked={isDark} onChange={() => setTheme((prev) => (prev === 'light' ? 'black' : 'light'))} />
       <Sun strokeWidth={2} size={32} className='text-white swap-on' />
       <Moon strokeWidth={2} size={32} className='text-black swap-off' />

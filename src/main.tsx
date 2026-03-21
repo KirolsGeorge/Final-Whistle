@@ -7,18 +7,21 @@ import { ToastProvider } from './context/toast-provider';
 import './index.css';
 
 import router from './router.tsx';
+import { AuthProvider } from './context/auth-provider.tsx';
 
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ToastProvider>
-      <QueryClientProvider client={queryClient}>
-        <div className='size-full min-h-dvh pl-safe-left pr-safe-right pt-safe-top pb-safe-bottom transition-all max-w-7xl mx-auto'>
-          <RouterProvider router={router} />
-        </div>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </ToastProvider>
+    <AuthProvider>
+      <ToastProvider>
+        <QueryClientProvider client={queryClient}>
+          <div className='size-full min-h-dvh pl-safe-left pr-safe-right pt-safe-top pb-safe-bottom transition-all max-w-7xl mx-auto'>
+            <RouterProvider router={router} />
+          </div>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </ToastProvider>
+    </AuthProvider>
   </StrictMode>
 );

@@ -9,11 +9,8 @@ import { Trophy, History } from 'lucide-react';
 
 function App() {
   const modal = useModal();
-  const [page, setPage] = useState<string>(location.pathname === '/' ? 'rank' : location.pathname.split('/')[1] === 'recent' ? 'recent' : 'account');
   const [selectedTeam, setSelectedTeam] = useState<string>();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const dockItems = [
     {
@@ -34,7 +31,7 @@ function App() {
       <Header />
       <Outlet context={{ selectedTeam, setSelectedTeam }} />
       <Fab open={modal.open} openModal={modal.openModal} closeModal={modal.closeModal} isSubmitting={isSubmitting} setIsSubmitting={setIsSubmitting} />
-      <Dock page={page} setPage={setPage} items={dockItems} />
+      <Dock items={dockItems} />
     </main>
   );
 }

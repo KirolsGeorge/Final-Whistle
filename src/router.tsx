@@ -4,6 +4,7 @@ import App from '../src/App';
 import RankPage from './pages/rank';
 import RecentPage from './pages/recent';
 import AccountPage from './pages/account';
+import ProtectedRoute from './ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -11,16 +12,24 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: '',
+        element: <AccountPage />,
+      },
+      {
         path: 'rank',
-        element: <RankPage />,
+        element: (
+          <ProtectedRoute>
+            <RankPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: 'recent',
-        element: <RecentPage />,
-      },
-      {
-        path: '',
-        element: <AccountPage />,
+        element: (
+          <ProtectedRoute>
+            <RecentPage />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

@@ -1,9 +1,16 @@
 import type { Timestamp } from 'firebase/firestore';
 import type { Dispatch, SetStateAction } from 'react';
 
+export type DataFromProviderProps = {
+  uid: string;
+  email: string;
+  displayName: string;
+  photoURL: string;
+  providerId: string;
+  operationType: string;
+};
+
 export type DockProps = {
-  page: string;
-  setPage: React.Dispatch<React.SetStateAction<string>>;
   items: { icon: React.ReactNode; text: string; to: string; disabled?: true }[];
 };
 
