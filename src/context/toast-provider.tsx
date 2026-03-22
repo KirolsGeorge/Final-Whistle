@@ -15,7 +15,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
 
     setTimeout(() => {
       setToast((prev) => ({ ...prev, visible: false }));
-    }, 3000);
+    }, 5000);
   }
 
   return (

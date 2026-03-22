@@ -13,15 +13,15 @@ const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AuthProvider>
-      <ToastProvider>
+    <ToastProvider>
+      <AuthProvider>
         <QueryClientProvider client={queryClient}>
           <div className='size-full min-h-dvh pl-safe-left pr-safe-right pt-safe-top pb-safe-bottom transition-all max-w-7xl mx-auto'>
             <RouterProvider router={router} />
           </div>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
-      </ToastProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </ToastProvider>
   </StrictMode>
 );

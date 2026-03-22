@@ -7,27 +7,26 @@ export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { showToast } = useToast();
-  const { login, signInWithProvider } = useAuth();
+  const { login, signInWithProvider, loading } = useAuth();
 
-  const handelLogin = async (e: React.SubmitEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!email || !password) return;
-
-    try {
-      if (password.trim().length < 8) return showToast('error', 'The password must be at least 8 chars!');
-
-      await login(email, password);
-    } catch (error: any) {
-      showToast('error', error);
+    if (!email?.trim() || !password?.trim()) {
+      showToast('error', 'Email and password are required');
+      return;
     }
-    showToast('success', 'Login Successful');
-    setEmail('');
-    setPassword('');
+
+    if (password.trim().length < 8) {
+      showToast('error', 'The password must be at least 8 characters!');
+      return;
+    }
+
+    await login(email, password);
   };
 
   return (
-    <form onSubmit={handelLogin}>
+    <form onSubmit={handleLogin}>
       <fieldset className='fieldset bg-base-200 border-base-300 rounded-xl border p-4'>
         <label className='label'>Email</label>
         <input required type='email' className='input rounded-xl w-full' placeholder='Email' value={email.trim()} onChange={(e) => setEmail(e.target.value.trim())} />
@@ -42,13 +41,17 @@ export default function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type='submit' className='btn btn-neutral my-1 rounded-xl'>
-          Login
-        </button>
-        <button disabled className='btn btn-neutral my-1 rounded-xl'>
-          <span className='loading loading-spinner'></span>
-          Loading....
-        </button>
+        {!loading && (
+          <button type='submit' className='btn btn-neutral my-1 rounded-xl'>
+            Login
+          </button>
+        )}
+        {loading && (
+          <button disabled className='btn btn-neutral my-1 rounded-xl'>
+            <span className='loading loading-spinner'></span>
+            Loading....
+          </button>
+        )}
         <div className='divider'>OR continue with</div>
         <div className='flex gap-2'>
           {/* GitHub */}

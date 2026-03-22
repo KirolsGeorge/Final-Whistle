@@ -16,7 +16,6 @@ export default function Header() {
           className='btn btn-ghost btn-circle cursor-pointer'
           onClick={async () => {
             await logout();
-            showToast('success', 'Logout successfully!');
           }}
         >
           <LogOut />
