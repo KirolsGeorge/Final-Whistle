@@ -11,7 +11,7 @@ export function usePlayers() {
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
-      collection(db, 'players'),
+      collection(db, 'players'), // no userId filter
       (snapshot) => {
         const playersData = snapshot.docs.map((doc) => ({
           id: doc.id,

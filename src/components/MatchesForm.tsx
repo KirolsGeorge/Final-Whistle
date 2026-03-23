@@ -6,6 +6,7 @@ import PlayersSection from './PlayersSection';
 import MatchCard from './MatchCard';
 import { createFora } from '../services/foraService';
 import { useToast } from '../hooks/useToast';
+import { useAuth } from '../context/auth-context';
 
 type MatchesFormProps = {
   setIsSubmitting: Dispatch<SetStateAction<boolean>>;
@@ -19,10 +20,10 @@ export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesForm
   const { showToast } = useToast();
 
   useEffect(() => {
-     if (error) {
-       showToast('error', error.message);
+    if (error) {
+      showToast('error', error.message);
     }
-    
+
     if (!config.matchesCount || !config.teamsPerMatch) return;
 
     setMatches(
@@ -35,39 +36,36 @@ export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesForm
     );
   }, [config.matchesCount, config.teamsPerMatch]);
 
+  const { user } = useAuth();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    try {
-      setIsSubmitting(true);
-
-      const formData = new FormData(e.currentTarget);
-      const data = Object.fromEntries(formData.entries());
-
-      const player1 = data.player1.toString().toLocaleLowerCase().trim();
-      const player2 = data.player2.toString().toLocaleLowerCase().trim();
-
-      await createFora({
-        gameId: '2852001.Games',
-        secret: '2852001.Games',
-        player1,
-        player2,
-        matches: matches.map((match) => {
-          return {
-            player1Team: match.teams[0].team,
-            player2Team: match.teams[1].team,
-            player1Goals: match.teams[0].goals,
-            player2Goals: match.teams[1].goals,
-            matchWinner: match.teams[0].goals > match.teams[1].goals ? player1 : match.teams[0].goals < match.teams[1].goals ? player2 : 'draw',
-          };
-        }),
-      });
-      closeModal();
-    } catch (err) {
-      showToast('error', `${err}`);
-    } finally {
-      setIsSubmitting(false);
+    if (!user) {
+      showToast('error', 'Please login first');
+      return;
     }
+    setIsSubmitting(true);
+
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    const player1 = data.player1.toString().trim().toLocaleLowerCase();
+    const player2 = data.player2.toString().trim().toLocaleLowerCase();
+
+    await createFora({
+      userId: user.uid,
+      gameId: '2852001.Games',
+      secret: '2852001.Games',
+      player1,
+      player2,
+      matches: matches.map((match) => {
+        return {
+          player1Team: match.teams[0].team,
+          player2Team: match.teams[1].team,
+          player1Goals: match.teams[0].goals,
+          player2Goals: match.teams[1].goals,
+          matchWinner: match.teams[0].goals > match.teams[1].goals ? player1 : match.teams[0].goals < match.teams[1].goals ? player2 : 'draw',
+        };
+      }),
+    });
+    closeModal();
   };
 
   return (

@@ -3,8 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useToast } from './useToast';
 
 export function useFootballAPI() {
+  const { showToast } = useToast();
   async function fetchTeams(): Promise<Team[]> {
-    const { showToast } = useToast();
     const isDev = import.meta.env.DEV;
     let data: TeamsResponse;
 

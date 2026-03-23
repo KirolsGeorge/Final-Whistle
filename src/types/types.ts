@@ -33,6 +33,7 @@ export type ForaMatches = {
 };
 
 export type ForaSubmission = {
+  userId: string;
   foraId?: string;
   gameId: string;
   secret: string;
