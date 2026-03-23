@@ -1,6 +1,6 @@
 import { useForaConfig } from '../features/fora/hooks/useForaConfig';
 import { Settings } from 'lucide-react';
-import { useEffect, useState, type Dispatch, type SetStateAction } from 'react';
+import { useEffect, useRef, useState, type Dispatch, type SetStateAction } from 'react';
 import { useFootballAPI } from '../hooks/useFootballAPI';
 import PlayersSection from './PlayersSection';
 import MatchCard from './MatchCard';
@@ -14,12 +14,17 @@ type MatchesFormProps = {
   closeModal: () => void;
 };
 
+type Team = {
+  team: string;
+  goals: number;
+};
+
 export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesFormProps) {
   const [config, dispatch] = useForaConfig();
   const { data: teams, isLoading, error } = useFootballAPI();
   const [matches, setMatches] = useState<any[]>([]);
   const { showToast } = useToast();
-
+  const formRef = useRef<HTMLFormElement>(null);
   useEffect(() => {
     if (error) {
       showToast('error', error.message);
@@ -38,12 +43,17 @@ export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesForm
   }, [config.matchesCount, config.teamsPerMatch]);
 
   const { user } = useAuth();
+  const allSelected = matches.every((match) => match.teams.every((team: Team) => team.team !== '' && team.goals !== 0));
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!allSelected) {
+      return;
+    }
     if (!user) {
       showToast('error', 'Please login first');
       return;
     }
+
     setIsSubmitting(true);
 
     const data = Object.fromEntries(new FormData(e.currentTarget).entries());
@@ -66,14 +76,21 @@ export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesForm
         };
       }),
     });
-    resetMatchesForm();
+    resetMatchesForm({ dispatch });
     closeModal();
     setIsSubmitting(false);
     showToast('success', 'Fora added successfully');
   };
 
   return (
-    <form className='rounded flex flex-col gap-3' onSubmit={handleSubmit} id='matches-form'>
+    <form className='rounded flex flex-col gap-3' onSubmit={handleSubmit} id='matches-form' ref={formRef}>
+      {!allSelected && (
+        <div className={`toast toast-top toast-start`}>
+          <div className={`rounded-lg text-red-500`}>
+            <span>* You must fill all data</span>
+          </div>
+        </div>
+      )}
       <div className='flex items-center justify-end relative'>
         <button
           type='button'

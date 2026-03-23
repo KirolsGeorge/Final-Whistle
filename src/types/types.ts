@@ -94,12 +94,14 @@ export type FabProps = {
   closeModal: () => void;
   isSubmitting?: boolean;
   setIsSubmitting: Dispatch<SetStateAction<boolean>>;
+  resetCounter: number
 };
 
 export type UseModelReturnProps = {
   open: boolean;
   openModal: () => void;
   closeModal: () => void;
+  resetCounter: number;
 };
 
 export type MatchDetails = {

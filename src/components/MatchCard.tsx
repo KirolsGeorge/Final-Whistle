@@ -14,7 +14,7 @@ export default function MatchCard({ match, matchIndex, teams, isLoading, setMatc
 
             <select
               key={matchIndex + 16}
-              required
+              
               name={`chosenTeam${teamIndex + 1}`}
               className='select rounded-md cursor-pointer'
               value={team.team}
@@ -43,7 +43,7 @@ export default function MatchCard({ match, matchIndex, teams, isLoading, setMatc
 
             <select
               key={matchIndex + 15}
-              required
+              
               name={`Team Goals ${teamIndex + 1}`}
               className='select rounded-md  cursor-pointer'
               defaultValue={'Pick a number'}

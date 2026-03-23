@@ -30,7 +30,14 @@ function App() {
       <div className='absolute top-0 left-0 size-full bg-white/9 blur-[120px] pointer-events-none' />
       <Header />
       <Outlet context={{ selectedTeam, setSelectedTeam }} />
-      <Fab open={modal.open} openModal={modal.openModal} closeModal={modal.closeModal} isSubmitting={isSubmitting} setIsSubmitting={setIsSubmitting} />
+      <Fab
+        open={modal.open}
+        openModal={modal.openModal}
+        closeModal={modal.closeModal}
+        isSubmitting={isSubmitting}
+        setIsSubmitting={setIsSubmitting}
+        resetCounter={modal.resetCounter}
+      />
       <Dock items={dockItems} />
     </main>
   );

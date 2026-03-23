@@ -5,7 +5,7 @@ import type { FabProps } from '../types/types';
 import { useAuth } from '../context/auth-context';
 import { resetMatchesForm } from '../utils/resetForm';
 
-export default function Fab({ open, openModal, closeModal, isSubmitting, setIsSubmitting }: FabProps) {
+export default function Fab({ open, openModal, closeModal, isSubmitting, setIsSubmitting, resetCounter }: FabProps) {
   const user = useAuth();
 
   return (
@@ -24,7 +24,7 @@ export default function Fab({ open, openModal, closeModal, isSubmitting, setIsSu
         </div>
       )}
       <Modal open={open} onClose={closeModal} isSubmitting={isSubmitting}>
-        <MatchesForm setIsSubmitting={setIsSubmitting} closeModal={closeModal} />
+        <MatchesForm key={resetCounter} setIsSubmitting={setIsSubmitting} closeModal={closeModal} />
       </Modal>
     </>
   );
