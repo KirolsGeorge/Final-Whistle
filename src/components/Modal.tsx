@@ -1,5 +1,6 @@
 import { createPortal } from 'react-dom';
 import { modelLogic } from '../utils/modal-logic';
+import { resetMatchesForm } from '../utils/resetForm';
 
 export type modalProperties = {
   open: boolean;
@@ -24,7 +25,14 @@ export default function Modal({ open, onClose, children, justView = false, isSub
               Saving...
             </button>
           )}
-          <button type='button' className='btn bg-red-600 border-red-600 rounded' onClick={onClose}>
+          <button
+            type='button'
+            className='btn bg-red-600 border-red-600 rounded'
+            onClick={() => {
+              onClose();
+              resetMatchesForm();
+            }}
+          >
             Close
           </button>
         </div>

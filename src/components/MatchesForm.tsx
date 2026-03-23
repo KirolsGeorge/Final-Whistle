@@ -7,6 +7,7 @@ import MatchCard from './MatchCard';
 import { createFora } from '../services/foraService';
 import { useToast } from '../hooks/useToast';
 import { useAuth } from '../context/auth-context';
+import { resetMatchesForm } from '../utils/resetForm';
 
 type MatchesFormProps = {
   setIsSubmitting: Dispatch<SetStateAction<boolean>>;
@@ -65,7 +66,9 @@ export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesForm
         };
       }),
     });
+    resetMatchesForm();
     closeModal();
+    setIsSubmitting(false);
     showToast('success', 'Fora added successfully');
   };
 
@@ -114,7 +117,7 @@ export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesForm
 
       <div className='mb-1'>Players:</div>
 
-      <PlayersSection config={config} />
+      <PlayersSection key={config.playersCount} config={config} />
 
       <div className='flex flex-col gap-2'>
         {matches.map((match, matchIndex) => (

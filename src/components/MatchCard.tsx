@@ -1,6 +1,4 @@
 export default function MatchCard({ match, matchIndex, teams, isLoading, setMatches }: any) {
-
-
   return (
     <div className='collapse collapse-arrow bg-base-100 border border-white/20 light:border-black/20  rounded-md '>
       <input type='radio' name='my-accordion-2' defaultChecked={matchIndex === 0} />
@@ -15,6 +13,7 @@ export default function MatchCard({ match, matchIndex, teams, isLoading, setMatc
             <label className='label'>Team</label>
 
             <select
+              key={matchIndex + 16}
               required
               name={`chosenTeam${teamIndex + 1}`}
               className='select rounded-md cursor-pointer'
@@ -22,7 +21,6 @@ export default function MatchCard({ match, matchIndex, teams, isLoading, setMatc
               onChange={(e) => {
                 setMatches((prev: any) => {
                   const updated = [...prev];
-                  console.log(updated);
                   updated[matchIndex].teams[teamIndex].team = e.target.value;
                   return updated;
                 });
@@ -44,6 +42,7 @@ export default function MatchCard({ match, matchIndex, teams, isLoading, setMatc
             <label className='label'>Goals</label>
 
             <select
+              key={matchIndex + 15}
               required
               name={`Team Goals ${teamIndex + 1}`}
               className='select rounded-md  cursor-pointer'
