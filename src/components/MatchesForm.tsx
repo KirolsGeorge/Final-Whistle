@@ -66,6 +66,7 @@ export default function MatchesForm({ setIsSubmitting, closeModal }: MatchesForm
       }),
     });
     closeModal();
+    showToast('success', 'Fora added successfully');
   };
 
   return (
